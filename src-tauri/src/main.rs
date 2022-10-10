@@ -23,6 +23,7 @@ fn main() {
             if line.contains("Network: ") {
               let tokens: Vec<&str> = line.split(":").collect();
               splashscreen_window.close().unwrap();
+              // println!("Connect to port {}", tokens[3]);
               main_window.eval(&format!("window.location.replace('http://localhost:{}')", tokens[3]));
               main_window.show().unwrap();
             }

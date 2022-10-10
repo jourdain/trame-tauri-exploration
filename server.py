@@ -24,4 +24,9 @@ with SinglePageLayout(server) as layout:
             vuetify.VIcon("mdi-crop-free")
 
 if __name__ == "__main__":
-    server.start()
+    # Default desktop app setup
+    server.start(
+        port=0,
+        open_browser=False,
+        timeout=10,
+    )
