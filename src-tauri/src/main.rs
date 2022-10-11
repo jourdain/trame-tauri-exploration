@@ -14,17 +14,18 @@ fn main() {
 
       let (mut rx, _) = Command::new_sidecar("server")
         .expect("failed to create sidecar")
+        .args(["--server", "--port", "0", "--timeout", "10"])
         .spawn()
         .expect("Failed to spawn server");
 
       tauri::async_runtime::spawn(async move {
         while let Some(event) = rx.recv().await {
           if let CommandEvent::Stdout(line) = event {
-            if line.contains("Network: ") {
-              let tokens: Vec<&str> = line.split(":").collect();
+            if line.contains("tauri-server-port=") {
+              let tokens: Vec<&str> = line.split("=").collect();
               splashscreen_window.close().unwrap();
-              // println!("Connect to port {}", tokens[3]);
-              main_window.eval(&format!("window.location.replace('http://localhost:{}')", tokens[3]));
+              // println!("Connect to port {}", tokens[1]);
+              main_window.eval(&format!("window.location.replace('http://localhost:{}')", tokens[1]));
               main_window.show().unwrap();
             }
           }

@@ -20,6 +20,9 @@
             "sidecar": true
           }
         ]
+      },
+      "http": {
+        "scope": ["http://localhost/*"]
       }
     },
     "bundle": {
