@@ -8,8 +8,6 @@ source .venv/bin/activate
 pip install -U pip
 pip install trame pyinstaller
 
-rm -rf src-tauri/server
-
 python -m PyInstaller \
     --clean --noconfirm \
     --distpath src-tauri \
@@ -23,4 +21,6 @@ python -m PyInstaller \
 
 cd src-tauri
 cargo tauri build
+
+open target/release/bundle/macos/Cone.app
 ```
