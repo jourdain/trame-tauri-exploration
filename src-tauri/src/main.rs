@@ -12,7 +12,7 @@ fn main() {
       let splashscreen_window = app.get_window("splashscreen").unwrap();
       let main_window = app.get_window("main").unwrap();
 
-      let (mut rx, _) = Command::new_sidecar("server")
+      let (mut rx, _) = Command::new_sidecar("trame")
         .expect("failed to create sidecar")
         .args(["--server", "--port", "0", "--timeout", "10"])
         .spawn()

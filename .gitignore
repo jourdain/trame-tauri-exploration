@@ -2,4 +2,5 @@
 build
 *.spec
 .python-version
-src-tauri/bin
+src-tauri/target
+src-tauri/server

@@ -16,7 +16,7 @@
         "sidecar": true,
         "scope": [
           {
-            "name": "bin/server",
+            "name": "bin/trame",
             "sidecar": true
           }
         ]
@@ -28,12 +28,12 @@
     "bundle": {
       "active": true,
       "category": "DeveloperTool",
-      "copyright": "",
+      "copyright": "Kitware Inc.",
       "deb": {
         "depends": []
       },
       "externalBin": [
-        "bin/server"
+        "bin/trame"
       ],
       "icon": [
         "icons/32x32.png",
@@ -51,7 +51,7 @@
         "providerShortName": null,
         "signingIdentity": null
       },
-      "resources": [],
+      "resources": ["server"],
       "shortDescription": "",
       "targets": "all",
       "windows": {
