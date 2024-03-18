@@ -79,8 +79,11 @@
         "label": "splashscreen",
         "width": 400,
         "height": 200,
+        "center": true,
         "decorations": false,
         "resizable": false,
+        "visible": true,
+        "alwaysOnTop": true,
         "url": "splashscreen.html"
       }
     ]

@@ -5,6 +5,8 @@
 
 use tauri::api::process::{Command, CommandEvent};
 use tauri::Manager;
+use std::time::Duration;
+use async_std::task;
 
 fn main() {
   tauri::Builder::default()
@@ -23,9 +25,13 @@ fn main() {
           if let CommandEvent::Stdout(line) = event {
             if line.contains("tauri-server-port=") {
               let tokens: Vec<&str> = line.split("=").collect();
+              let mut port = tokens[1].to_string();
+              port.pop();
+              task::sleep(Duration::from_secs(2)).await;
               splashscreen_window.close().unwrap();
-              // println!("Connect to port {}", tokens[1]);
-              main_window.eval(&format!("window.location.replace('http://localhost:{}')", tokens[1]));
+              // println!("Connect to port {}", port);
+              // println!("window.location.replace('http://localhost:{}')", port);
+              main_window.eval(&format!("window.location.replace('http://localhost:{}')", port));
               main_window.show().unwrap();
             }
           }

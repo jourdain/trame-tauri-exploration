@@ -5,7 +5,10 @@
 ```bash
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 . "$HOME/.cargo/env"
-cargo install tauri-cli
+cargo install tauri-
+
+# optional
+cargo install --locked cargo-outdated
 ```
 
 ### Python/trame
@@ -29,7 +32,10 @@ python -m PyInstaller \
     server.py
 
 cd src-tauri
-cargo tauri build
 
+# Fix versions in Cargo.toml for tauri and tauri-build
+# cargo outdated
+
+cargo tauri build
 open target/release/bundle/macos/Cone.app
 ```
