@@ -42,15 +42,7 @@ jobs:
       - name: trame app
         run: |
           pip install trame trame-vtk trame-vuetify pyinstaller
-          python -m PyInstaller \
-            --clean --noconfirm \
-            --distpath src-tauri \
-            --name server \
-            --hidden-import pkgutil \
-            --collect-data trame_client \
-            --collect-data trame_vuetify \
-            --collect-data trame_vtk \
-            server.py
+          python -m PyInstaller --clean --noconfirm --distpath src-tauri --name server --hidden-import pkgutil --collect-data trame_client --collect-data trame_vuetify --collect-data trame_vtk server.py
 
       - name: Build the app
         uses: tauri-apps/tauri-action@v0
