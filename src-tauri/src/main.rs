@@ -27,13 +27,11 @@ fn main() {
               let tokens: Vec<&str> = line.split("=").collect();
               let port_token = tokens[1].to_string();
               let port = port_token.trim();
-              // println!(">>>{}<<<", port);
-              // println!("nex");
+              main_window.eval(&format!("window.location.replace('http://localhost:{}')", port));
+            }
+            if line.contains("tauri-client-ready") {
               task::sleep(Duration::from_secs(2)).await;
               splashscreen_window.close().unwrap();
-              // println!("Connect to port {}", port);
-              // println!("window.location.replace('http://localhost:{}')", port);
-              main_window.eval(&format!("window.location.replace('http://localhost:{}')", port));
               main_window.show().unwrap();
             }
           }
