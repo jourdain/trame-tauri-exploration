@@ -25,8 +25,10 @@ fn main() {
           if let CommandEvent::Stdout(line) = event {
             if line.contains("tauri-server-port=") {
               let tokens: Vec<&str> = line.split("=").collect();
-              let mut port = tokens[1].to_string();
-              port.pop();
+              let port_token = tokens[1].to_string();
+              let port = port_token.trim();
+              // println!(">>>{}<<<", port);
+              // println!("nex");
               task::sleep(Duration::from_secs(2)).await;
               splashscreen_window.close().unwrap();
               // println!("Connect to port {}", port);
