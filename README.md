@@ -34,6 +34,10 @@ python -m PyInstaller \
 # cd src-tauri
 # cargo outdated
 
+# Generate icons from image
+cargo tauri icon ./app-icon.png
+
+# Bundle app (--debug)
 cargo tauri build
 open ./src-tauri/target/release/bundle/macos/Cone.app
 ```
