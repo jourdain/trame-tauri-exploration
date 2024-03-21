@@ -21,7 +21,7 @@ source .venv/bin/activate
 pip install -U pip
 pip install trame trame-vtk trame-vuetify pyinstaller
 
-python -m trame.tools.www --client-type vue2 --output ./src-tauri/www
+python -m trame.tools.www --output ./src-tauri/www
 
 python -m PyInstaller \
     --clean --noconfirm \
