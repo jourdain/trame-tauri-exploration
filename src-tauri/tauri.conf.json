@@ -20,9 +20,6 @@
             "sidecar": true
           }
         ]
-      },
-      "http": {
-        "scope": ["http://localhost/*"]
       }
     },
     "bundle": {
@@ -56,7 +53,7 @@
       }
     },
     "security": {
-      "csp": "default-src 'self'"
+      "csp": "default-src 'self' 'unsafe-inline' ws: localhost; script-src 'unsafe-eval' 'self';"
     },
     "updater": {
       "active": false

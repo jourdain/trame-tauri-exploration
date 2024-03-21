@@ -21,21 +21,19 @@ source .venv/bin/activate
 pip install -U pip
 pip install trame trame-vtk trame-vuetify pyinstaller
 
+python -m trame.tools.www --client-type vue2 --output ./src-tauri/www
+
 python -m PyInstaller \
     --clean --noconfirm \
     --distpath src-tauri \
     --name server \
     --hidden-import pkgutil \
-    --collect-data trame_client \
-    --collect-data trame_vuetify \
-    --collect-data trame_vtk \
     server.py
 
-cd src-tauri
-
 # Fix versions in Cargo.toml for tauri and tauri-build
+# cd src-tauri
 # cargo outdated
 
 cargo tauri build
-open target/release/bundle/macos/Cone.app
+open ./src-tauri/target/release/bundle/macos/Cone.app
 ```
