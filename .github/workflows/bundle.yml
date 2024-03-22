@@ -79,9 +79,14 @@ jobs:
 
       - name: trame app
         run: |
+          pip install -U pip
           pip install trame trame-vtk trame-vuetify pyinstaller
           python -m PyInstaller --clean --noconfirm --distpath src-tauri --name server --hidden-import pkgutil server.py
           python -m trame.tools.www --output ./src-tauri/www
+
+      - name: Tauri add-on
+        run: |
+          cargo install tauri-cli
           cargo tauri icon ./app-icon.png
 
       - name: Build the app
